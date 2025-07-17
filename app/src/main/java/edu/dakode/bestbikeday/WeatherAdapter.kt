@@ -28,7 +28,6 @@ class WeatherAdapter(private val items: List<WeatherDay>) : RecyclerView.Adapter
 
     class WeatherViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvDayName: TextView = itemView.findViewById(R.id.tvDayName)
-        private val tvDate: TextView = itemView.findViewById(R.id.tvDate)
         private val tvTemp: TextView = itemView.findViewById(R.id.tvTemp)
         private val tvPrecip: TextView = itemView.findViewById(R.id.tvPrecip)
         private val tvWind: TextView = itemView.findViewById(R.id.tvWind)
@@ -37,7 +36,6 @@ class WeatherAdapter(private val items: List<WeatherDay>) : RecyclerView.Adapter
 
         fun bind(day: WeatherDay) {
             tvDayName.text = getDayName(day.date)
-            tvDate.text = day.date
             tvTemp.text = "Temperature: ${day.maxTemp}° / ${day.minTemp}°"
             tvPrecip.text = "Rain Chance: ${day.precipitation}%"
             tvWind.text = "Wind Speed: ${day.wind} km/h"

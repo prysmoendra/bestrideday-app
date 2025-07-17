@@ -25,7 +25,13 @@ class CirclePercentView @JvmOverloads constructor(
     }
     private val paintText = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.parseColor("#444444") // soft dark gray
-        textSize = 28f
+        textSize = 36f
+        textAlign = Paint.Align.CENTER
+        isFakeBoldText = true
+    }
+    private val paintDesc = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.parseColor("#888888")
+        textSize = 18f
         textAlign = Paint.Align.CENTER
     }
     fun setPercent(p: Int) {
@@ -40,7 +46,11 @@ class CirclePercentView @JvmOverloads constructor(
         val sweep = percent * 3.6f
         paintFg.color = Color.parseColor("#AEE9D1") // keep arc color soft
         canvas.drawArc(rect, -90f, sweep, false, paintFg)
-        canvas.drawText("$percent%", width / 2f, height / 2f + 10f, paintText)
+        // Draw percentage
+        val centerY = height / 2f
+        canvas.drawText("$percent%", width / 2f, centerY - 6f, paintText)
+        // Draw description below
+        canvas.drawText("for biking", width / 2f, centerY + 22f, paintDesc)
     }
     private fun scoreToColor(score: Int): Int {
         return when {
