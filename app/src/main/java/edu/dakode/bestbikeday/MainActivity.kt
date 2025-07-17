@@ -70,9 +70,9 @@ class MainActivity : AppCompatActivity() {
 
         val api = retrofit.create(OpenMeteoApi::class.java)
 
-        // Kediri, East Java coordinates
-        val latitude = -7.8228
-        val longitude = 112.0114
+        // Dubai coordinates
+        val latitude = 25.276987
+        val longitude = 55.296249
 
         api.get7DayForecast(latitude, longitude).enqueue(object : Callback<WeatherResponse> {
             override fun onResponse(call: Call<WeatherResponse>, response: Response<WeatherResponse>) {
