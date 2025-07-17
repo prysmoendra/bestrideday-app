@@ -15,6 +15,10 @@ import retrofit2.Callback
 import retrofit2.Response
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import android.view.ViewGroup
+import android.content.Context
+import edu.dakode.bestbikeday.WeatherDay
+import edu.dakode.bestbikeday.WeatherAdapter
 
 // Data models for Open-Meteo API
 
@@ -41,6 +45,9 @@ interface OpenMeteoApi {
         @Query("timezone") timezone: String = "Asia/Jakarta"
     ): Call<WeatherResponse>
 }
+
+// Helper function to convert dp to pixels
+fun Int.dp(context: Context): Int = (this * context.resources.displayMetrics.density).toInt()
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

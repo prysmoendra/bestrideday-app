@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
     app:cardCornerRadius="16dp"
-    app:cardElevation="8dp">
+    app:cardElevation="8dp"
+    android:background="#F6FAF7">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,16 +14,35 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/tvDate"
-            android:layout_width="0dp"
+            android:id="@+id/tvDayName"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Date"
+            android:text="Monday"
             android:textStyle="bold"
             android:textSize="18sp"
             android:textColor="@android:color/black"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <edu.dakode.bestbikeday.CirclePercentView
+            android:id="@+id/circlePercent"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@id/tvDayName"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:layout_marginTop="2dp"/>
 
         <TextView
             android:id="@+id/tvTemp"
@@ -61,9 +81,7 @@
             android:id="@+id/tvScore"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Bike Ride Score: 90%"
-            android:textStyle="bold"
-            android:textSize="20sp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/tvWind"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
